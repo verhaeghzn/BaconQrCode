@@ -97,7 +97,7 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->startElement('g');
         $this->xmlWriter->writeAttribute(
             'transform',
-            sprintf('scale(%s)', round($size, self::PRECISION))
+            sprintf('scale(%s)', round($size, 0))
         );
         ++$this->stack[$this->currentStack];
     }
@@ -111,7 +111,7 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->startElement('g');
         $this->xmlWriter->writeAttribute(
             'transform',
-            sprintf('translate(%s)', round($x, self::PRECISION))
+            sprintf('translate(%s,%s)', round($x, self::PRECISION), round($y, self::PRECISION))
         );
         ++$this->stack[$this->currentStack];
     }
